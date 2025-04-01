@@ -4,6 +4,8 @@
 #include "LandingPageAbstraction.hpp"
 #include "ProductController.hpp"
 #include "OrderController.hpp"
+#include "Product.hpp"
+#include "Order.hpp"
 
 
 class LandingPageController {
@@ -31,6 +33,10 @@ public:
     void getOrderPresenter(void* data);
 
     void getProductPresenter(void* data);
+
+    void createOrder(Ordert& order);
+
+    void createProduct(Product& product);
 };
 
 
