@@ -15,17 +15,17 @@ void DummyDBData::initOrders() {
 
 void DummyDBData::initUsers() {
     if (this->customers.empty()) {
-        this->customers.emplace_back(0, CUSTOMER, "custFName0", 
-                "custLName0", "custAddr0", "custAccNo0");
-        this->customers.emplace_back(2, CUSTOMER, "custFName1", 
-            "custLName1", "custAddr1", "custAccNo1");
+        this->customers.emplace_back(0, CUSTOMER, "John", 
+                "Doe", "customer address 0", "123456");
+        this->customers.emplace_back(1, CUSTOMER, "Serena", 
+            "Williams", "customer address 1", "234567");
     }
 
     if (this->sellers.empty()) {
-        this->sellers.emplace_back(1, SELLER, "sellerFName0", 
-            "sellerLName0", "sellerAddr0", "sellerAccNo0");
-        this->sellers.emplace_back(3, SELLER, "sellerFName1", 
-            "sellerLName1", "sellerAddr1", "sellerAccNo1");
+        this->sellers.emplace_back(2, SELLER, "Swift", 
+            "Taylor", "seller address 2", "345678");
+        this->sellers.emplace_back(3, SELLER, "Andrew", 
+            "Wilson", "seller address 3", "456789");
     }
 
     if (this->users.empty()) {
