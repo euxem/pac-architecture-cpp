@@ -1,0 +1,9 @@
+services:
+  service-pac-demo:
+    image: build-base-image-cpp:latest
+    container_name: container-pac-demo-cpp
+    volumes:
+      - .:/project
+    ports:
+      - "8080:8080"
+    entrypoint: /project/entrypoint.sh
