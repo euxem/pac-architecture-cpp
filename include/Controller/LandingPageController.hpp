@@ -34,7 +34,7 @@ public:
 
     void getProductPresenter(void* data);
 
-    void createOrder(Ordert& order);
+    void createOrder(Order& order);
 
     void createProduct(Product& product);
 };
