@@ -28,6 +28,9 @@ public:
 
     User& getUser(int id);
 
+    void getOrderPresenter(void* data);
+
+    void getProductPresenter(void* data);
 };
 
 

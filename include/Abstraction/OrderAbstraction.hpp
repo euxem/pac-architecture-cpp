@@ -26,7 +26,7 @@ public:
      * @param customer The customer whose orders are to be retrieved.
      * @return A list of orders associated with the given customer.
      */
-    std::vector<Order> getOrdersForCustomer(User customer);
+    std::vector<Order> getOrdersForCustomer(User& customer);
 
     /**
      * Retrieves all orders that contain products sold by a specific seller.

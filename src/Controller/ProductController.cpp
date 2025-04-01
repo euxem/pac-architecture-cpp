@@ -1,7 +1,8 @@
 #include <vector>
 
-#include "ProductController.hpp"
 #include "ProductAbstraction.hpp"
+#include "ProductController.hpp"
+#include "IProductPresenter.hpp"
 #include "Product.hpp"
 #include "User.hpp"
 
@@ -29,4 +30,18 @@ std::vector<Product> ProductController::getProductsForUser(User& user) {
  */
 void ProductController::createProduct(Product& product) {
     this->productAbstraction.createProduct(product);
+}
+
+/**
+ * Presenter need to subscribe
+ */
+void ProductController::subscribe(IProductPresenter* productPresenter) {
+    this->productPresenter = productPresenter;
+}
+
+/**
+ * Notify the presenter he need to print
+ */
+void ProductController::notify(void* data) {
+    this->productPresenter->showProduct(data);
 }

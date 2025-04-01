@@ -4,8 +4,10 @@
 #include <vector>
 
 #include "ProductAbstraction.hpp"
+#include "IProductPresenter.hpp"
 #include "Product.hpp"
 #include "User.hpp"
+
 
 /**
  * Controller responsible for managing products,  
@@ -17,6 +19,8 @@ private:
      * Abstraction layer for handling product-related operations.  
      */
     ProductAbstraction& productAbstraction;
+
+    IProductPresenter* productPresenter = nullptr;
 
 public:
     ProductController(ProductAbstraction& productAbstraction) : productAbstraction(productAbstraction) {}
@@ -37,6 +41,16 @@ public:
      * @param product The product to be created.
      */
     void createProduct(Product& product);
+
+    /**
+     * Presenter need to subscribe
+     */
+    void subscribe(IProductPresenter* productPresenter);
+
+    /**
+     * Notify the presenter he need to print
+     */
+    void notify(void* data);
 };
 
 #endif

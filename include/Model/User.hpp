@@ -40,7 +40,7 @@ class User {
         std::string accountNo;
 
     public:
-        User(int id, UserType userType, std::string& firstName, std::string& lastName, std::string& address, std::string& accountNo) : id(id), userType(userType), firstName(firstName), lastName(lastName), address(address), accountNo(accountNo) {}
+        User(int id, UserType userType, std::string firstName, std::string lastName, std::string address, std::string accountNo) : id(id), userType(userType), firstName(firstName), lastName(lastName), address(address), accountNo(accountNo) {}
 
         /**
          * get the user id
@@ -55,5 +55,33 @@ class User {
          * @return the type of the user
          */
         UserType getUserType();
+
+        /**
+         * getter for firstname
+         * 
+         * @return firstname
+         */
+        std::string& getFirstName();
+
+        /**
+         * getter for LastName
+         * 
+         * @return lastname
+         */
+        std::string& getLastName();
+
+        /**
+         * getter for address
+         * 
+         * @return the address
+         */
+        std::string& getAddress();
+
+        /**
+         * gettre for AccountNo
+         * 
+         * @return the accountNo
+         */
+        std::string& getAccountNo();
 };
 #endif

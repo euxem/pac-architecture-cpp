@@ -21,7 +21,7 @@ class Product {
         /** The seller offering the product for sale. */
         User seller;
     public:
-        Product(int id, std::string& name, int quantity, User& seller) : id(id), name(name), quantity(quantity), seller(seller) {}
+        Product(int id, std::string name, int quantity, User& seller) : id(id), name(name), quantity(quantity), seller(seller) {}
 
         /**
          * Get the id of the products

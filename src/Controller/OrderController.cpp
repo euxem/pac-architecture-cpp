@@ -2,6 +2,7 @@
 
 #include "OrderController.hpp"
 #include "OrderAbstraction.hpp"
+#include "IOrderPresenter.hpp"
 #include "User.hpp"
 #include "Order.hpp"
 
@@ -29,4 +30,19 @@ std::vector<Order> OrderController::getOrdersForUser(User& user) {
  */
 void OrderController::createOrder(Order& order) {
     this->orderAbstraction.createOrder(order);
+}
+
+
+/**
+ * Presenter need to subscribe
+ */
+void OrderController::subscribe(IOrderPresenter* orderPresenter) {
+    this->orderPresenter = orderPresenter;
+}
+
+/**
+ * Notify the presenter he need to print
+ */
+void OrderController::notify(void* data) {
+    this->orderPresenter->showOrder(data);
 }

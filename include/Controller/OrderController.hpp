@@ -2,8 +2,8 @@
 #define __ORDERCONTROLLER_H__
 
 #include <vector>
-
 #include "OrderAbstraction.hpp"
+#include "IOrderPresenter.hpp"
 #include "User.hpp"
 #include "Order.hpp"
 
@@ -17,6 +17,12 @@ private:
      * Abstraction layer for handling order-related operations.  
      */
     OrderAbstraction& orderAbstraction;
+
+    /**
+     * Function Pointer to notify OrderPresenter
+     */
+    IOrderPresenter* orderPresenter = nullptr;
+
 public:
     OrderController(OrderAbstraction& orderAbstraction) : orderAbstraction(orderAbstraction) {}
 
@@ -36,6 +42,16 @@ public:
      * @param order The order to be created.
      */
     void createOrder(Order& order);
+
+    /**
+     * Presenter need to subscribe
+     */
+    void subscribe(IOrderPresenter* orderPresenter);
+
+    /**
+     * Notify the presenter he need to print
+     */
+    void notify(void* data);
 };
 
 #endif
