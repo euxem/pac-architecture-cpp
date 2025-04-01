@@ -7,11 +7,25 @@
 #include "Product.hpp"
 #include "message.hpp"
 
-
+/**
+ * @brief Constructs a ProductPresenter and subscribes to the ProductController.
+ *
+ * This constructor initializes the presenter and subscribes it to receive product updates.
+ *
+ * @param productController Reference to the ProductController.
+ */
 ProductPresenter::ProductPresenter(ProductController& productController) : productController(productController) {
     productController.subscribe((IProductPresenter*)this);
 }
 
+/**
+ * @brief Generates and sends the HTML content for displaying products.
+ *
+ * This function retrieves a list of products for a given user, formats them into an HTML table,
+ * and sends the response back to the client.
+ *
+ * @param data Pointer to a Message object containing request details.
+ */
 void ProductPresenter::showProduct(void* data) {
     Message* mes = (Message*)data;
 
@@ -40,7 +54,7 @@ void ProductPresenter::showProduct(void* data) {
         </tr>
     )";
 
-    // Affichage des produits
+    // Product Handler
     for (Product& product : products) {
         html << "<tr>"
                 << "<td>" << product.getId() << "</td>"

@@ -8,10 +8,26 @@
 #include "Product.hpp"
 #include "message.hpp"
 
+
+/**
+ * @brief Constructs an OrderPresenter and subscribes to the OrderController.
+ *
+ * This constructor initializes the presenter and subscribes it to receive order updates.
+ *
+ * @param orderController Reference to the OrderController.
+ */
 OrderPresenter::OrderPresenter(OrderController& orderController) : orderController(orderController) {
     orderController.subscribe((IOrderPresenter*)this);
 }
 
+/**
+ * @brief Generates and sends the HTML content for displaying orders.
+ *
+ * This function retrieves a list of orders for a given user, formats them into an HTML table,
+ * and sends the response back to the client.
+ *
+ * @param data Pointer to a Message object containing request details.
+ */
 void OrderPresenter::showOrder(void* data) {    
     Message* mes = (Message*)data;
 
@@ -39,7 +55,7 @@ void OrderPresenter::showOrder(void* data) {
         </tr>
     )";
 
-    // Affichage des commandes
+    // Command Handler
     for (Order& order : orders) {
         for (Product& product : order.getProducts()) {
             html << "<tr>"

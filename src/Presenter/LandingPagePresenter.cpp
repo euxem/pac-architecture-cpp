@@ -1,6 +1,17 @@
 #include "LandingPagePresenter.hpp"
 #include "User.hpp"
 
+/**
+ * @brief Generates and sends the HTML content for the landing page.
+ *
+ * This function retrieves user details based on the provided userId and generates
+ * an HTML page containing the user's information and two iframes for products
+ * and orders. It also includes JavaScript to refresh these iframes periodically.
+ *
+ * @param req Incoming HTTP request.
+ * @param res HTTP response to be filled with HTML content.
+ * @param userId The ID of the logged-in user.
+ */
 void LandingPagePresenter::showPage(const crow::request& req, crow::response& res, int userId) {
     User user = this->landingPageController.getUser(userId);
     std::stringstream html;
