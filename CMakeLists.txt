@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.10)
-project(MonProjet)
+project(Ecommerce)
 
 # Définit le standard C++
 set(CMAKE_CXX_STANDARD 17)
@@ -25,10 +25,10 @@ file(GLOB_RECURSE SOURCES
 )
 
 # Crée l'exécutable à partir des fichiers sources
-add_executable(mon_projet ${SOURCES})
+add_executable(E_commerce ${SOURCES})
 
 # Si tu utilises Crow, assure-toi qu'il est trouvé
 include_directories(/usr/local/include)
 
 # Lier les librairies nécessaires, comme pthread pour Crow
-target_link_libraries(mon_projet pthread)
+target_link_libraries(E_commerce pthread)

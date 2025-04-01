@@ -11,7 +11,7 @@ cmake ..
 
 make
 
-./mon_projet
+./E_commerce
 # Compile the Java PAC demo project
 # mvn clean install
 
