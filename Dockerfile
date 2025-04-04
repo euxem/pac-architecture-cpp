@@ -4,7 +4,7 @@ FROM ubuntu:jammy
 
 RUN apt-get update && apt-get -y upgrade
 # Installing G++ and git
-RUN apt-get -y install g++ git cmake python3 libasio-dev
+RUN apt-get -y install g++ git cmake python3 libasio-dev python3-pip
 
 # Installing Crow
 RUN git clone https://github.com/CrowCpp/Crow.git && \
@@ -12,3 +12,6 @@ RUN git clone https://github.com/CrowCpp/Crow.git && \
     mkdir build && cd build && \
     cmake .. && make && \
     make install
+
+# Installing request for python testing
+RUN pip3 install requests
