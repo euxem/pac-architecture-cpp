@@ -15,6 +15,7 @@
  * @param productController Reference to the ProductController.
  */
 ProductPresenter::ProductPresenter(ProductController& productController) : productController(productController) {
+    // Register this presenter as a subscriber to receive updates from the controller
     productController.subscribe((IProductPresenter*)this);
 }
 
@@ -29,7 +30,10 @@ ProductPresenter::ProductPresenter(ProductController& productController) : produ
 void ProductPresenter::showProduct(void* data) {
     Message* mes = (Message*)data;
 
+    // Fetch products associated with the user from the controller
     std::vector<Product> products = this->productController.getProductsForUser(mes->user);
+
+    // Start building the HTML page with a table
     std::stringstream html;
 
     html << R"(
@@ -54,7 +58,7 @@ void ProductPresenter::showProduct(void* data) {
         </tr>
     )";
 
-    // Product Handler
+    // Loop through the product list and fill each table row with product data
     for (Product& product : products) {
         html << "<tr>"
                 << "<td>" << product.getId() << "</td>"
@@ -70,6 +74,7 @@ void ProductPresenter::showProduct(void* data) {
     </html>
     )";
 
+    // Set content type and send the constructed HTML response
     mes->res.set_header("Content-Type", "text/html");
     mes->res.write(html.str());
     mes->res.end();

@@ -8,7 +8,6 @@
 #include "Product.hpp"
 #include "message.hpp"
 
-
 /**
  * @brief Constructs an OrderPresenter and subscribes to the OrderController.
  *
@@ -17,6 +16,7 @@
  * @param orderController Reference to the OrderController.
  */
 OrderPresenter::OrderPresenter(OrderController& orderController) : orderController(orderController) {
+    // Register this presenter as a subscriber to receive notifications from the controller
     orderController.subscribe((IOrderPresenter*)this);
 }
 
@@ -31,7 +31,10 @@ OrderPresenter::OrderPresenter(OrderController& orderController) : orderControll
 void OrderPresenter::showOrder(void* data) {    
     Message* mes = (Message*)data;
 
+    // Retrieve all orders related to the given user
     std::vector<Order> orders = this->orderController.getOrdersForUser(mes->user);
+
+    // Start building the HTML content
     std::stringstream html;
 
     html << R"(
@@ -55,7 +58,7 @@ void OrderPresenter::showOrder(void* data) {
         </tr>
     )";
 
-    // Command Handler
+    // Loop through each order and its products to fill table rows
     for (Order& order : orders) {
         for (Product& product : order.getProducts()) {
             html << "<tr>"
@@ -72,6 +75,7 @@ void OrderPresenter::showOrder(void* data) {
     </html>
     )";
 
+    // Set response content type and return the generated HTML
     mes->res.set_header("Content-Type", "text/html");
     mes->res.write(html.str());
     mes->res.end();
