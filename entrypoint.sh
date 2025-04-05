@@ -11,9 +11,9 @@ cmake ..
 
 make
 
-./E_commerce
-# Compile the Java PAC demo project
-# mvn clean install
 
-# Run the Java PAC demo project
-# mvn spring-boot:run
+echo The application is running, please hit http://localhost:8080/\<int\> in your web browser
+
+echo \<int\> can be 0, 1, 2 or 3
+
+./E_commerce 2> info.txt

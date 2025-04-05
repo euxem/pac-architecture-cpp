@@ -21,6 +21,8 @@ class Product {
         /** The seller offering the product for sale. */
         User seller;
     public:
+        Product() {}
+
         Product(int id, std::string name, int quantity, User& seller) : id(id), name(name), quantity(quantity), seller(seller) {}
 
         /**
@@ -50,6 +52,34 @@ class Product {
          * @return the seller
          */
         User getSeller();
+
+        /**
+         * Set the id
+         * 
+         * @param id the id of the product
+         */
+        void setId(int id);
+
+        /**
+         * Set the Name
+         * 
+         * @param name the name of the product
+         */
+        void setName(std::string name);
+
+        /**
+         * Set the quantity
+         * 
+         * @param quantity the quantity
+         */
+        void setQuantity(int quantity);
+
+        /**
+         * Set the seller
+         * 
+         * @param seller the seller
+         */
+        void setSeller(User seller);
 };
 
 #endif

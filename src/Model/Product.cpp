@@ -38,3 +38,39 @@ int Product::getQuantity() {
 User Product::getSeller() {
     return this->seller;
 }
+
+/**
+ * Set the id
+ * 
+ * @param id the id of the product
+ */
+void Product::setId(int id) {
+    this->id = id;
+}
+
+/**
+ * Set the Name
+ * 
+ * @param name the name of the product
+ */
+void Product::setName(std::string name) {
+    this->name = name;
+}
+
+/**
+ * Set the quantity
+ * 
+ * @param quantity the quantity
+ */
+void Product::setQuantity(int quantity) {
+    this->quantity = quantity;
+}
+
+/**
+ * Set the seller
+ * 
+ * @param seller the seller
+ */
+void Product::setSeller(User seller) {
+    this->seller = seller;
+}

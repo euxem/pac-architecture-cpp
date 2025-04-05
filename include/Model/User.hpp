@@ -40,6 +40,8 @@ class User {
         std::string accountNo;
 
     public:
+        User() {}
+
         User(int id, UserType userType, std::string firstName, std::string lastName, std::string address, std::string accountNo) : id(id), userType(userType), firstName(firstName), lastName(lastName), address(address), accountNo(accountNo) {}
 
         /**

@@ -30,3 +30,30 @@ User& Order::getCustomer() {
 std::vector<Product>& Order::getProducts() {
     return this->products;
 }
+
+/**
+ * Set the id of the order
+ * 
+ * @param id the id of the order
+ */
+void Order::setId(int id) {
+    this->id = id;
+}
+
+/**
+ * Set the customer who made the offer
+ * 
+ * @param customer the customer
+ */
+void Order::setCustomer(User customer) {
+    this->customer = customer;
+}
+
+/**
+ * Set the list of product
+ * 
+ * @param products a vector of product
+ */
+void Order::setProducts(std::vector<Product>& products) {
+    this->products = products;
+}

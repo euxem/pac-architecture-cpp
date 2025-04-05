@@ -86,7 +86,7 @@
              order.setId(json["id"].i());
  
              // Assign customer to order
-             int customerId = json["customerId"].i();
+             int customerId = json["customer"]["id"].i();
              order.setCustomer(landCont.getUser(customerId));
  
              // Parse product list and assign to order
@@ -94,7 +94,9 @@
              for (const auto& item : json["products"]) {
                  Product p;
                  p.setId(item["id"].i());
-                 // Other fields could be added here as needed
+                 p.setName(item["name"].s());
+                 p.setQuantity(item["quantity"].i());
+                 p.setSeller(landCont.getUser(item["seller"]["id"].i()));
                  products.push_back(p);
              }
              order.setProducts(products);
@@ -126,7 +128,7 @@
              product.setQuantity(json["quantity"].i());
  
              // Set seller of the product
-             int sellerId = json["sellerId"].i();
+             int sellerId = json["seller"]["id"].i();
              product.setSeller(landCont.getUser(sellerId));
  
              // Delegate creation to controller
