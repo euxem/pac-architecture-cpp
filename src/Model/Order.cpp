@@ -5,27 +5,27 @@
 #include "Product.hpp"
 
 /**
- * Get the order ID
+ * @brief Retrieves the ID of the order.
  * 
- * @return the order Id
+ * @return The unique identifier of the order.
  */
 int Order::getId() {
     return this->id;
 }
 
 /**
- * Get the user
+ * @brief Gets the customer who placed the order.
  * 
- * @return the user
+ * @return A reference to the User object representing the customer.
  */
 User& Order::getCustomer() {
     return this->customer;
 }
 
 /**
- * Get the list of products in the offer
+ * @brief Retrieves the list of products included in the order.
  * 
- * @return the list of product
+ * @return A reference to the vector of Product objects in the order.
  */
 std::vector<Product>& Order::getProducts() {
     return this->products;

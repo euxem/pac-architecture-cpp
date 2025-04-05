@@ -4,36 +4,36 @@
 #include "User.hpp"
 
 /**
- * Get the id of the products
+ * @brief Retrieves the product's unique identifier.
  * 
- * @return the id
+ * @return The ID of the product.
  */
 int Product::getId() {
     return this->id;
 }
 
 /**
- * Get the name of the product
+ * @brief Gets the name of the product.
  * 
- * @return the name
+ * @return A reference to the product's name as a string.
  */
 std::string& Product::getName() {
     return this->name;
 }
 
 /**
- * Get the quantity available of the product
+ * @brief Retrieves the available quantity of the product.
  * 
- * @return the available quantity
+ * @return The quantity in stock.
  */
 int Product::getQuantity() {
     return this->quantity;
 }
 
 /**
- * Get the Seller of the product
+ * @brief Gets the seller associated with the product.
  * 
- * @return the seller
+ * @return A copy of the User object representing the seller.
  */
 User Product::getSeller() {
     return this->seller;
