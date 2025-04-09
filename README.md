@@ -20,4 +20,4 @@ You can see what the server do in the file /project/build/info.txt when the app 
  - then select wich script do you want to launch :\
         python3 order.py     (will add order)\
      or python3 product.py   (will add product)
- - hit http://localhost:8080/1 to see the result
+ - hit http://localhost:8080/2 to see the result
